@@ -1,2 +1,2 @@
-# RaspInst
-Raspberry installer
+# SAMPLE
+Sample Projects
