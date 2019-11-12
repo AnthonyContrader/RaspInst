@@ -69,7 +69,7 @@ public class Pacchetto {
 	}
 	@Override
 	public String toString() {
-		return id + "\t" + nome + "\t" + categoria +"\t"+versione + "\t" + data+"\n";
+		return id + "\t" + nome + "\t" + categoria +"\t"+data+ "\t" + versione+"\n";
 	}
 	
 	@Override
