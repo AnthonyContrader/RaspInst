@@ -10,22 +10,25 @@ public class Pacchetto {
 	
 	private String data;
 	
+	private String versione;
+	
 	public Pacchetto() {
 		
 	}
 	
-	public Pacchetto (String nome, String categoria, String data){
+	public Pacchetto (String nome, String categoria, String data, String versione){
 		this.nome=nome;
 		this.categoria=categoria;
 		this.data=data;
+		this.versione=versione;
 	}
 	
-	public Pacchetto (int id,String nome, String categoria, String data) {
+	public Pacchetto (int id,String nome, String categoria, String data,String Versione) {
 		this.id=id;
 		this.nome=nome;
 		this.categoria=categoria;
 		this.data=data;
-		
+		this.versione=versione;
 	}
 	
 	public void setId(int id) {
@@ -50,16 +53,23 @@ public class Pacchetto {
 	public String getCategoria() {
 		return this.categoria;
 	}
-	public void setData(String Data) {
+	public void setData(String data) {
 		this.data=data;
 	}
 	
 	public String getData() {
 		return this.data;
 	}
+	public void setVersione(String versione) {
+		this.versione=versione;
+	}
+	
+	public String getVersione() {
+		return this.versione;
+	}
 	@Override
 	public String toString() {
-		return id + "\t" + nome + "\t" + categoria +"\t"+ data+"\n";
+		return id + "\t" + nome + "\t" + categoria +"\t"+versione + "\t" + data+"\n";
 	}
 	
 	@Override
@@ -88,6 +98,12 @@ public class Pacchetto {
 			return false;
 		}
 	else if(!data.equals(other.data))
+		return false;
+		
+		if (versione==null && other.versione!=null || versione != null && other.versione == null) {
+			return false;
+		}
+	else if(!versione.equals(other.versione))
 		return false;
 	return true;		
 	}
