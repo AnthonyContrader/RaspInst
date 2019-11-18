@@ -6,7 +6,6 @@ import it.contrader.view.AbstractView;
 
 public class UserInsertView extends AbstractView{
 	private Request request;
-
 	private String username;
 	private String password;
 	private String usertype;
@@ -52,6 +51,4 @@ public class UserInsertView extends AbstractView{
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
-
-
 }

@@ -12,7 +12,7 @@ import it.contrader.model.Environment;
 public class EnvironmentConverter {
 
 	public EnvironmentDTO toDTO(Environment environment) {
-		EnvironmentDTO environmentdto= new EnvironmentDTO(environment.getId(),environment.getnome());
+		EnvironmentDTO environmentdto= new EnvironmentDTO(environment.getId(),environment.getNome());
 		return environmentdto;
 	}
 	

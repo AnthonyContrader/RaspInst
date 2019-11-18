@@ -58,5 +58,4 @@ public class UserReadView extends AbstractView {
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
-
 }
