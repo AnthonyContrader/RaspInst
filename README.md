@@ -1,2 +1,1 @@
-# RaspInst
-Raspberry installer
+# DORSE
