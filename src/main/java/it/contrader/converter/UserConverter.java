@@ -44,8 +44,5 @@ public class UserConverter   {
 			userDTOList.add(toDTO(user));
 		}
 		return userDTOList;
-	}
-
-	
-	
+	}	
 }

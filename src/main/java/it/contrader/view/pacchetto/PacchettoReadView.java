@@ -1,8 +1,10 @@
 package it.contrader.view.pacchetto;
-import it.contrader.view.AbstractView;
+import java.util.List;
+
 import it.contrader.controller.Request;
 import it.contrader.dto.PacchettoDTO;
 import it.contrader.main.MainDispatcher;
+import it.contrader.view.AbstractView;
 public class PacchettoReadView extends AbstractView{
 	private int id;
 	private Request request;
@@ -13,11 +15,24 @@ public class PacchettoReadView extends AbstractView{
 	}
 	@Override
 	public void showResults(Request request) {
-		if (request != null) {
+		System.out.println("Sono entrato dentro show result in PacchettoReadView");
+		if( request != null) {
+			if(request.get("pacchetto") instanceof List) {
+			}else {
+				System.out.println("Sto per stampare i dati");
+				PacchettoDTO pacchetto = (PacchettoDTO) request.get("pacchetto");
+				System.out.println(pacchetto);
+				System.out.println("Ho stampato i datis");
+				MainDispatcher.getInstance().callView("Pacchetto", null);
+			}
+		}
+		/*if (request != null) {
+			System.out.println("Sto per stampare i dati");
 			PacchettoDTO pacchetto = (PacchettoDTO) request.get("pacchetto");
 			System.out.println(pacchetto);
+			System.out.println("Ho stampato i datis");
 			MainDispatcher.getInstance().callView("Pacchetto", null);
-		}
+		}*/
 	}
 	@Override
 	public void showOptions() {

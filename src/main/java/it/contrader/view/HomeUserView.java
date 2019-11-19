@@ -17,8 +17,8 @@ public class HomeUserView extends AbstractView{
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("NESSUNA OPZIONE DISPONIBILE!");
-		System.out.println("\n Esatto, puoi solo uscire...");
+		System.out.println("[V]isualizza pacchetti");
+	//	System.out.println("\n Esatto, puoi solo uscire...");
 		choice = this.getInput();
 
 	}
@@ -31,7 +31,8 @@ public class HomeUserView extends AbstractView{
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;
-
+		case"v":
+			MainDispatcher.getInstance().callAction("READ", "doControl", null);
 		default:
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 		}

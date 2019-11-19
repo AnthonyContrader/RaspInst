@@ -1,9 +1,7 @@
 package it.contrader.controller;
 
 import java.util.List;
-
 import it.contrader.dto.PacchettoDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.PacchettoService;
 
@@ -74,7 +72,7 @@ public class PacchettoController implements Controller{
 			List<PacchettoDTO> pacchettiDTO = pacchettoService.getAll();
 			//Impacchetta la request con la lista degli user
 			request.put("pacchetto", pacchettiDTO);
-			MainDispatcher.getInstance().callView("pacchetto", request);
+			MainDispatcher.getInstance().callView(this.sub_package + "PacchettoRead", request);
 			break;
 			//Esegue uno switch sulla base del comando inserito dall'utente e reindirizza tramite il Dispatcher alla View specifica per ogni operazione
 			//con REQUEST NULL (vedi una View specifica)
@@ -86,6 +84,7 @@ public class PacchettoController implements Controller{
 					break;
 					
 				case "I":
+					System.out.println("Sono in pacchetto controller");
 					MainDispatcher.getInstance().callView(sub_package + "PacchettoInsert", null);
 					break;
 					
