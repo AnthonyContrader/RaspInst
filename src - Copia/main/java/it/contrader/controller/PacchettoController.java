@@ -3,9 +3,7 @@ package it.contrader.controller;
 import java.util.List;
 import it.contrader.dto.PacchettoDTO;
 import it.contrader.main.MainDispatcher;
-import it.contrader.main.SharedData;
 import it.contrader.service.PacchettoService;
-import it.contrader.view.PacchettoUserView;
 
 public class PacchettoController implements Controller{
 	
@@ -25,24 +23,18 @@ public class PacchettoController implements Controller{
 		String versione;
 		
 		switch (mode) {
-		case "showView":
-			if(SharedData.isAdmin())
-				MainDispatcher.getInstance().callView("Pacchetto", null);	
-			if(SharedData.isUser())
-				MainDispatcher.getInstance().callView("PacchettoUser", null);	
-			break;
-		case "READ":	
+		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
 			PacchettoDTO pacchettoDTO = pacchettoService.read(id);
 			request.put("pacchetto", pacchettoDTO);
-				MainDispatcher.getInstance().callView(sub_package + "PacchettoRead", request);
-		//	mode="showView";
+			MainDispatcher.getInstance().callView(sub_package + "PacchettoRead", request);
 			break;
-		case "INSERT":			
+		case "INSERT":
 			nome = request.get("nome").toString();
 			categoria = request.get("categoria").toString();
 			data = request.get("data").toString();
 			versione = request.get("versione").toString();
+			
 			//costruisce l'oggetto pacchetto da inserire
 			PacchettoDTO pacchettoToInsert = new PacchettoDTO(nome, categoria, data, versione);
 			//invoca il service
@@ -51,7 +43,7 @@ public class PacchettoController implements Controller{
 			request.put("mode", "mode");
 			//Rimanda alla view con la risposta
 			MainDispatcher.getInstance().callView(sub_package + "PacchettoInsert", request);
-			break;
+			break;	
 			// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
@@ -79,19 +71,15 @@ public class PacchettoController implements Controller{
 		case "PACCHETTOLIST":
 			List<PacchettoDTO> pacchettiDTO = pacchettoService.getAll();
 			//Impacchetta la request con la lista degli user
-			request.put("pacchetti", pacchettiDTO);
-			if(SharedData.isAdmin()) {
-				MainDispatcher.getInstance().callView("Pacchetto", request);
-			} else if(SharedData.isUser()) {
-				MainDispatcher.getInstance().callView("PacchettoUser", request);
-			}
+			request.put("pacchetto", pacchettiDTO);
+			MainDispatcher.getInstance().callView(this.sub_package + "PacchettoRead", request);
 			break;
 			//Esegue uno switch sulla base del comando inserito dall'utente e reindirizza tramite il Dispatcher alla View specifica per ogni operazione
 			//con REQUEST NULL (vedi una View specifica)
 		case "GETCHOICE":
 			//toUpperCase() mette in maiuscolo la scelta
 			switch (choice.toUpperCase()) {
-				case "L":			
+				case "L":
 					MainDispatcher.getInstance().callView(sub_package + "PacchettoRead", null);
 					break;
 					

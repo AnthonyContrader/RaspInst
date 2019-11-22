@@ -62,8 +62,8 @@ public class EnvironmentController implements Controller{
 		case "ENVIRONMENTLIST":
 			List<EnvironmentDTO> environmentsDTO = environmentService.getAll();
 			//Impacchetta la request con la lista degli environment
-/*occhio*/  request.put("environments", environmentsDTO);
-			MainDispatcher.getInstance().callView("Environment", request);
+			request.put("environment", environmentsDTO);
+			MainDispatcher.getInstance().callView("environment", request);
 			break;
 			//Esegue uno switch sulla base del comando inserito dall'environment e reindirizza tramite il Dispatcher alla View specifica per ogni operazione
 			//con REQUEST NULL (vedi una View specifica)

@@ -17,7 +17,7 @@ public class HomeUserView extends AbstractView{
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("[P]acchetto");
+		System.out.println("[V]isualizza pacchetti");
 	//	System.out.println("\n Esatto, puoi solo uscire...");
 		choice = this.getInput();
 
@@ -25,16 +25,14 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void submit() {
-		Request request = new Request();
+
 		switch (choice) {
 
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;
-		case "p":
-			request.put("mode", "PACCHETTOLIST");
-        	MainDispatcher.getInstance().callAction("Pacchetto", "doControl", request);
-        	break;
+		case"v":
+			MainDispatcher.getInstance().callAction("READ", "doControl", null);
 		default:
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 		}

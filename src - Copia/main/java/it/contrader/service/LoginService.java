@@ -1,7 +1,6 @@
 package it.contrader.service;
 
 import it.contrader.dao.LoginDAO;
-import it.contrader.main.SharedData;
 
 public class LoginService {
 
@@ -17,8 +16,6 @@ public class LoginService {
 	 * Chiama il metodo del DAO e ottiene una stringa (lo usertype)
 	 */
 	public String login (String username, String password) {
-		String usertype = this.loginDAO.login(username, password);
-		SharedData.loggedUsertype = usertype;
-		return usertype;
+		return this.loginDAO.login(username, password);
 	}
 }

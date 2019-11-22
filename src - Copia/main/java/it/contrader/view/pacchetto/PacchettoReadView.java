@@ -16,18 +16,14 @@ public class PacchettoReadView extends AbstractView{
 	@Override
 	public void showResults(Request request) {
 		System.out.println("Sono entrato dentro show result in PacchettoReadView");
-		this.request = request;
 		if( request != null) {
 			if(request.get("pacchetto") instanceof List) {
 			}else {
 				System.out.println("Sto per stampare i dati");
 				PacchettoDTO pacchetto = (PacchettoDTO) request.get("pacchetto");
 				System.out.println(pacchetto);
-				System.out.println("Ho stampato i dati");
-			//	MainDispatcher.getInstance().callView("Pacchetto", null);
-				Request newRequest=new Request();
-				newRequest.put("mode", "showView");
-				MainDispatcher.getInstance().callAction("Pacchetto", "doControl",newRequest);
+				System.out.println("Ho stampato i datis");
+				MainDispatcher.getInstance().callView("Pacchetto", null);
 			}
 		}
 		/*if (request != null) {

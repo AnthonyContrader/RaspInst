@@ -1,5 +1,4 @@
 package it.contrader.view.pacchetto;
-import it.contrader.dto.PacchettoDTO;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
@@ -20,8 +19,8 @@ public class PacchettoDeleteView extends AbstractView{
 	}
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci id del pacchetto:");
-		id = Integer.parseInt(getInput());
+			System.out.println("Inserisci id del pacchetto:");
+			id = Integer.parseInt(getInput());
 	}
 	@Override
 	public void submit() {

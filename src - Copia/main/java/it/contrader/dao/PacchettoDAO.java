@@ -25,7 +25,7 @@ public class PacchettoDAO {
 			Pacchetto pacchetto;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String nome = resultSet.getString("nome");
+				String nome = resultSet.getString("name");
 				String categoria = resultSet.getString("categoria");
 				String data = resultSet.getString("data");
 				String versione = resultSet.getString("versione");

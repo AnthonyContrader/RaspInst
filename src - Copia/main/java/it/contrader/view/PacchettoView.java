@@ -10,6 +10,7 @@ import it.contrader.service.PacchettoService;
 public class PacchettoView extends AbstractView{
 	private Request request;
 	private String choice;
+	private PacchettoService ps;
 	public PacchettoView() {
 		
 	}
@@ -20,10 +21,11 @@ public class PacchettoView extends AbstractView{
 			System.out.println("\n------------------- Gestione Pacchetto ----------------\n");
 			System.out.println("ID\tNome\tCategoria\tData\tVersione");
 			System.out.println("----------------------------------------------------\n");
-		
 			
-			@SuppressWarnings("unchecked")
-			List<PacchettoDTO> pacchetti=(List<PacchettoDTO>) request.get("pacchetti");
+			List<PacchettoDTO> pacchetti = ps.getAll();
+			
+			//@SuppressWarnings("unchecked")
+			//List<PacchettoDTO> pacchetti=(List<PacchettoDTO>) request.get("pacchetti");
 			for (PacchettoDTO u: pacchetti)
 				System.out.println(u);
 			System.out.println();
@@ -34,9 +36,6 @@ public class PacchettoView extends AbstractView{
 		System.out.println("          Scegli l'operazione da effettuare:");
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
 		this.choice = getInput();
-		/*if(this.choice!="l" || this.choice!="i" || this.choice!="m"|| this.choice!="c"|| this.choice!="b" || choice!="e")
-        	showOptions();*/
-    
 	}
 	@Override
 	public void submit() {

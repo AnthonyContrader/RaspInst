@@ -1,19 +1,17 @@
 package it.contrader.view;
+
 import java.util.List;
 
 import it.contrader.controller.Request;
 import it.contrader.dto.PacchettoDTO;
 import it.contrader.main.MainDispatcher;
-import it.contrader.service.PacchettoService;
 
-
-public class PacchettoView extends AbstractView{
+public class PacchettoUserView  extends AbstractView{
 	private Request request;
 	private String choice;
-	public PacchettoView() {
+	public PacchettoUserView() {
 		
 	}
-	
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
@@ -28,12 +26,21 @@ public class PacchettoView extends AbstractView{
 				System.out.println(u);
 			System.out.println();
 		}
-	}
+	}	
 	@Override
 	public void showOptions() {
 		System.out.println("          Scegli l'operazione da effettuare:");
-		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
-		this.choice = getInput();
+		System.out.println("[L]eggi [B]ack [E]sci");
+		String a = getInput();
+		if(a.equals("l")) {
+			this.choice=a;
+		}
+		else {
+			System.out.println("operazione errata");
+			showOptions();
+			
+		}
+		
 		/*if(this.choice!="l" || this.choice!="i" || this.choice!="m"|| this.choice!="c"|| this.choice!="b" || choice!="e")
         	showOptions();*/
     
@@ -45,4 +52,5 @@ public class PacchettoView extends AbstractView{
 		request.put("mode", "GETCHOICE");
 		MainDispatcher.getInstance().callAction("Pacchetto", "doControl", this.request);
 	}
+
 }
