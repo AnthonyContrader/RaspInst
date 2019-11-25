@@ -5,7 +5,7 @@ import it.contrader.dto.PacchettoDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.main.SharedData;
 import it.contrader.service.PacchettoService;
-import it.contrader.view.PacchettoUserView;
+//import it.contrader.view.PacchettoUserView;
 
 public class PacchettoController implements Controller{
 	

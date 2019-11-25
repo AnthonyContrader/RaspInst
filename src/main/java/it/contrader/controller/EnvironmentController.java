@@ -3,8 +3,8 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.EnvironmentDTO;
-import it.contrader.dto.EnvironmentDTO;
 import it.contrader.main.MainDispatcher;
+import it.contrader.main.SharedData;
 import it.contrader.service.EnvironmentService;
 
 public class EnvironmentController implements Controller{
@@ -21,6 +21,12 @@ public class EnvironmentController implements Controller{
 		int id;
 		String nome;
 		switch (mode) {
+		case "showView":
+			if(SharedData.isAdmin())
+				MainDispatcher.getInstance().callView("Environment", null);	
+			if(SharedData.isUser())
+				MainDispatcher.getInstance().callView("EnvironmentUser", null);	
+			break;
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
 			EnvironmentDTO environmentDTO = environmentService.read(id);
@@ -36,7 +42,7 @@ public class EnvironmentController implements Controller{
 			request = new Request();
 			request.put("mode", "mode");
 			//Rimanda alla view con la risposta
-			MainDispatcher.getInstance().callView(sub_package + "PacchettoInsert", request);
+			MainDispatcher.getInstance().callView(sub_package + "EnvironmentInsert", request);
 			break;	
 			// Arriva qui dalla EnvironmentDeleteView. Estrae l'id dell'environment da cancellare e lo passa al Service
 		case "DELETE":
@@ -63,13 +69,20 @@ public class EnvironmentController implements Controller{
 			List<EnvironmentDTO> environmentsDTO = environmentService.getAll();
 			//Impacchetta la request con la lista degli environment
 /*occhio*/  request.put("environments", environmentsDTO);
-			MainDispatcher.getInstance().callView("Environment", request);
+			if(SharedData.isAdmin()) {
+				MainDispatcher.getInstance().callView("Environment", request);
+			}
+			else if(SharedData.isUser()) {
+					MainDispatcher.getInstance().callView("EnvironmentUser", request);
+			}
+		//	MainDispatcher.getInstance().callView("Environment", request);
 			break;
 			//Esegue uno switch sulla base del comando inserito dall'environment e reindirizza tramite il Dispatcher alla View specifica per ogni operazione
 			//con REQUEST NULL (vedi una View specifica)
 		case "GETCHOICE":
 			//toUpperCase() mette in maiuscolo la scelta
 			switch (choice.toUpperCase()) {
+			
 				case "L":
 					MainDispatcher.getInstance().callView(sub_package + "EnvironmentRead", null);
 					break;

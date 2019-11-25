@@ -3,26 +3,26 @@ package it.contrader.view;
 import java.util.List;
 
 import it.contrader.controller.Request;
-import it.contrader.dto.PacchettoDTO;
+import it.contrader.dto.EnvironmentDTO;
 import it.contrader.main.MainDispatcher;
 
-public class PacchettoUserView  extends AbstractView{
+public class EnvironmentUserView  extends AbstractView{
 	private Request request;
 	private String choice;
-	public PacchettoUserView() {
+	public EnvironmentUserView() {
 		
 	}
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
 			System.out.println("\n------------------- Gestione Pacchetto ----------------\n");
-			System.out.println("ID\tNome\tCategoria\tData\tVersione");
+			System.out.println("ID\tNome");
 			System.out.println("----------------------------------------------------\n");
 		
 			
 			@SuppressWarnings("unchecked")
-			List<PacchettoDTO> pacchetti=(List<PacchettoDTO>) request.get("pacchetti");
-			for (PacchettoDTO u: pacchetti)
+			List<EnvironmentDTO> environments=(List<EnvironmentDTO>) request.get("environments");
+			for (EnvironmentDTO u: environments)
 				System.out.println(u);
 			System.out.println();
 		}
@@ -56,7 +56,6 @@ public class PacchettoUserView  extends AbstractView{
 		request = new Request();
 		request.put("choice", choice);
 		request.put("mode", "GETCHOICE");
-		MainDispatcher.getInstance().callAction("Pacchetto", "doControl", this.request);
+		MainDispatcher.getInstance().callAction("Environment", "doControl", this.request);
 	}
-
 }

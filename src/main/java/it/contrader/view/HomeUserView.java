@@ -10,14 +10,14 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void showResults(Request request) {
-		System.out.println("\n-----Purtroppo in questo sample l'utente non puà fare nulla, ci scusiamo per il disagio.-----");
+		System.out.println("\n Benvenuto in RASPINST-CONSOLE "+request.get("username").toString() + "\n");
 
 	}
 
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("[P]acchetto");
+		System.out.println("e[N]vironment [P]acchetti  [B]ack   [E]xit ");
 	//	System.out.println("\n Esatto, puoi solo uscire...");
 		choice = this.getInput();
 
@@ -34,6 +34,10 @@ public class HomeUserView extends AbstractView{
 		case "p":
 			request.put("mode", "PACCHETTOLIST");
         	MainDispatcher.getInstance().callAction("Pacchetto", "doControl", request);
+        	break;
+		case "n":
+			request.put("mode", "ENVIRONMENTLIST");
+        	MainDispatcher.getInstance().callAction("Environment", "doControl", request);
         	break;
 		default:
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
