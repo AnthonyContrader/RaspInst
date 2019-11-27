@@ -1,92 +1,92 @@
 package it.contrader.dao;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import it.contrader.utils.ConnectionSingleton;
-import it.contrader.model.Formato;
+import it.contrader.model.Prezzo;
 
+public class PrezzoDAO implements DAO<Prezzo>{
+	private final String QUERY_ALL = "SELECT * FROM prezzo";
+	private final String QUERY_CREATE = "INSERT INTO prezzo (costo) VALUES (?)";
+	private final String QUERY_READ = "SELECT * FROM prezzo WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE prezzo SET costo=? WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM prezzo WHERE id=?";
 
-public class FormatoDAO implements DAO<Formato>{
-	private final String QUERY_ALL = "SELECT * FROM formato";
-	private final String QUERY_CREATE = "INSERT INTO formato (tipoFormato) VALUES (?)";
-	private final String QUERY_READ = "SELECT * FROM formato WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE formato SET tipoFormato=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM user WHERE id=?";
-
-	public FormatoDAO() {
+	public PrezzoDAO() {
 		
 	}
-	public List<Formato> getAll() {
-		List<Formato> formatiList = new ArrayList<>();
+	public List<Prezzo> getAll() {
+		List<Prezzo> prezziList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
-			Formato formato;
+			Prezzo prezzo;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String tipoFormato = resultSet.getString("tipoFormato");
-				formato = new Formato(tipoFormato);
-				formato.setId(id);
-				formatiList.add(formato);
+				float costo = resultSet.getFloat("costo");
+				prezzo = new Prezzo(costo);
+				prezzo.setId(id);
+				prezziList.add(prezzo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return formatiList;
+		return prezziList;
 	}
-	public boolean insert(Formato formatoToInsert) {
+	public boolean insert(Prezzo prezzoToInsert) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setString(1, formatoToInsert.getTipoFormato());
+			preparedStatement.setFloat(1, prezzoToInsert.getCosto());
 			preparedStatement.execute();
 			return true;
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			return false;
 		}
 
 	}
-	public Formato read(int formatoId) {
+	public Prezzo read(int prezzoId) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, formatoId);
+			preparedStatement.setInt(1, prezzoId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String tipoFormato;
+			float costo;
 
-			tipoFormato = resultSet.getString("tipoFormato");
-			Formato formato = new Formato(tipoFormato);
-			formato.setId(resultSet.getInt("id"));
+			costo = resultSet.getFloat("costo");
+			Prezzo prezzo = new Prezzo(costo);
+			prezzo.setId(resultSet.getInt("id"));
 
-			return formato;
-		} catch (SQLException e) {
+			return prezzo;
+		} 
+		catch (SQLException e) {
 			return null;
 		}
 
 	}
-	public boolean update(Formato formatoToUpdate) {
+	public boolean update(Prezzo prezzoToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (formatoToUpdate.getId() == 0)
+		if (prezzoToUpdate.getId() == 0)
 			return false;
 
-		Formato formatoRead = read(formatoToUpdate.getId());
-		if (!formatoRead.equals(formatoToUpdate)) {
+		Prezzo prezzoRead = read(prezzoToUpdate.getId());
+		if (!prezzoRead.equals(prezzoToUpdate)) {
 			try {
 				// Fill the userToUpdate object
-				if (formatoToUpdate.getTipoFormato() == null || formatoToUpdate.getTipoFormato().equals("")) {
-					formatoToUpdate.setTipoFormato(formatoRead.getTipoFormato());
+				if (prezzoToUpdate.getCosto() == 0) {
+					prezzoToUpdate.setCosto(prezzoRead.getCosto());
 				}
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, formatoToUpdate.getTipoFormato());
-				preparedStatement.setInt(2, formatoToUpdate.getId());
+				preparedStatement.setFloat(1, prezzoToUpdate.getCosto());
+				preparedStatement.setInt(2, prezzoToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
