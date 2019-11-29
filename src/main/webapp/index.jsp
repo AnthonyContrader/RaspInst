@@ -9,7 +9,7 @@
 
 		<form class="login" action="LoginServlet" method="post">
 
-				<label for="user">Username: </label>
+				<label for="user"> Username: </label>
 			
 				<input type="text" id="user" name="username" placeholder="Insert username">
 		

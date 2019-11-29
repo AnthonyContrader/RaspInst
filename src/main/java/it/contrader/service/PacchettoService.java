@@ -7,12 +7,14 @@ import it.contrader.dto.PacchettoDTO;
 import it.contrader.model.Pacchetto;
 
 public class PacchettoService extends AbstractService<Pacchetto, PacchettoDTO>{
-	private PacchettoDAO pacchettoDAO;
-	private PacchettoConverter pacchettoConverter;
+	//private PacchettoDAO pacchettoDAO;
+	//private PacchettoConverter pacchettoConverter;
 	
 	//Istanzio DAO  e Converter specifici.
 	public PacchettoService(){
-		this.pacchettoDAO = new PacchettoDAO();
-		this.pacchettoConverter = new PacchettoConverter();
+		//this.pacchettoDAO = new PacchettoDAO();
+		//this.pacchettoConverter = new PacchettoConverter();
+		this.dao = new PacchettoDAO();
+		this.converter = new PacchettoConverter();
 	}
 }

@@ -51,7 +51,4 @@ public class UserConverter  implements Converter<User, UserDTO> {
 		}
 		return userDTOList;
 	}
-
-	
-	
 }

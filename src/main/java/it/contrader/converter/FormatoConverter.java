@@ -3,9 +3,11 @@ package it.contrader.converter;
 import java.util.ArrayList;
 import java.util.List;
 import it.contrader.dto.FormatoDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.model.Formato;
+import it.contrader.model.User;
 
-public class FormatoConverter {
+public class FormatoConverter implements Converter<Formato, FormatoDTO> { 
 	
 	public FormatoDTO toDTO(Formato formato) {
 		FormatoDTO formatodto= new FormatoDTO(formato.getId(),formato.getTipoFormato());

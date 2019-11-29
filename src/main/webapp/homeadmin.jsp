@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.UserDTO"%>
+	import="it.contrader.dto.UserDTO"
+	import="it.contrader.dto.PacchettoDTO"
+	import="it.contrader.dto.EnvironmentDTO"
+	import="it.contrader.dto.PrezzoDTO"
+	import="it.contrader.dto.FormatoDTO"
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +19,10 @@
 
 <div class="navbar">
   <a class="active" href="homeadmin.jsp">Home</a>
+  <a href="EnvironmentServlet?mode=environmentlist">Environments</a>    <!--   per mettere il pulsante environment nella pagina principale-->
+  <a href="PacchettoServlet?mode=pacchettolist">Pacchetti</a>
+  <a href="PrezzoServlet?mode=prezzolist">Prezzi</a>
+  <a href="FormatoServlet?mode=formatolist">Formati</a>
   <a href="UserServlet?mode=userlist">Users</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
@@ -21,13 +30,9 @@
 <div class="main">
 <h1>Welcome ${user.getUsername()}</h1>
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-
+" benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst "
+" benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst "
+" benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst  benvenuto in raspinst "
 </div>
 
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.Pacchetto;
-import it.contrader.model.User;
+
 
 public class PacchettoDAO implements DAO<Pacchetto> {
 	 
@@ -101,7 +101,7 @@ public class PacchettoDAO implements DAO<Pacchetto> {
 					pacchettoToUpdate.setVersione(pacchettoRead.getVersione());
 				}
 
-				// Update the user
+				// Update the pacchetto
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, pacchettoToUpdate.getNome());
 				preparedStatement.setString(2, pacchettoToUpdate.getCategoria());

@@ -8,15 +8,18 @@ import it.contrader.model.Pacchetto;
 import it.contrader.model.User;
 
 
-public class PacchettoConverter {
+public class PacchettoConverter  implements Converter<Pacchetto, PacchettoDTO>{
+	@Override
 	public PacchettoDTO toDTO(Pacchetto pacchetto) {
 			PacchettoDTO pacchettoDTO = new PacchettoDTO(pacchetto.getId(),pacchetto.getNome(),pacchetto.getCategoria(),pacchetto.getData(),pacchetto.getVersione());
 			return pacchettoDTO;
 	}
+	@Override
 	public Pacchetto toEntity(PacchettoDTO pacchettoDTO) {
 		Pacchetto pacchetto=new Pacchetto(pacchettoDTO.getId(),pacchettoDTO.getNome(),pacchettoDTO.getCategoria(),pacchettoDTO.getData(),pacchettoDTO.getVersione());
 		return pacchetto;
 	}
+	@Override
 	public List<PacchettoDTO> toDTOList(List<Pacchetto> pacchettoList){
 		List<PacchettoDTO> pacchettoDTOList = new ArrayList<PacchettoDTO>();
 

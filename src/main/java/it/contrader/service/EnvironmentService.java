@@ -9,11 +9,8 @@ import it.contrader.model.Environment;
 
 public class EnvironmentService extends AbstractService<Environment, EnvironmentDTO> {
 	
-	private EnvironmentDAO environmentDAO;
-	private EnvironmentConverter environmentConverter;
-	
 	public EnvironmentService(){
-		this.environmentDAO = new EnvironmentDAO();
-		this.environmentConverter = new EnvironmentConverter();
+		this.dao = new EnvironmentDAO();
+		this.converter = new EnvironmentConverter();
 	}	
 }

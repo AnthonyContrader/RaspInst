@@ -82,7 +82,8 @@ public class EnvironmentDAO implements DAO<Environment>{
 				if (environmentToUpdate.getNome() == null || environmentToUpdate.getNome().equals("")) {
 					environmentToUpdate.setNome(environmentRead.getNome());
 				}
-				// Update the user
+			
+				// Update the environment
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, environmentToUpdate.getNome());
 				preparedStatement.setInt(2, environmentToUpdate.getId());
@@ -93,6 +94,7 @@ public class EnvironmentDAO implements DAO<Environment>{
 					return false;
 
 			} 
+			
 			catch (SQLException e) {
 				return false;
 			}
