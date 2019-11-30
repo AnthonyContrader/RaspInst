@@ -42,7 +42,7 @@
 			<td><%=u.getUsertype()%></td>
 			<td><a href=UserServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
-			<td><a href=UserServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a href=UserServlet?mode=delete&id=<%=u.getId()%>>Delete</a> 
 			</td>
 
 		</tr>

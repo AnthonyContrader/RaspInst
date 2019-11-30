@@ -18,7 +18,7 @@
 
 
 <div class="navbar">
-  <a class="active" href="homeadmin.jsp">Home</a>
+  <a class="active" href="homeadmin.jsp">Home</a> 
   <a href="EnvironmentServlet?mode=environmentlist">Environments</a>    <!--   per mettere il pulsante environment nella pagina principale-->
   <a href="PacchettoServlet?mode=pacchettolist">Pacchetti</a>
   <a href="PrezzoServlet?mode=prezzolist">Prezzi</a>

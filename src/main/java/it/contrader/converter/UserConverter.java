@@ -33,7 +33,7 @@ public class UserConverter  implements Converter<User, UserDTO> {
 	public User toEntity(UserDTO userDTO) {
 		User user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getUsertype());
 		return user;
-	}
+	} 
 	
 	/**
 	 * Metodo per convertire le liste di User.

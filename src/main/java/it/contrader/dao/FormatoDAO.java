@@ -12,7 +12,7 @@ public class FormatoDAO implements DAO<Formato>{
 	private final String QUERY_CREATE = "INSERT INTO formato (tipoFormato) VALUES (?)";
 	private final String QUERY_READ = "SELECT * FROM formato WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE formato SET tipoFormato=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM user WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM formato WHERE id=?";
 
 	public FormatoDAO() {
 		
