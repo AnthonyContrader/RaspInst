@@ -9,7 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import it.contrader.dto.EnvironmentDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.EnvironmentService;
 
@@ -33,13 +36,23 @@ public class EnvironmentServlet extends HttpServlet {
 		EnvironmentDTO dto;
 		int id;
 		boolean ans;
-
+		final HttpSession session = request.getSession();
+		@SuppressWarnings("unused")
+		UserDTO u=(UserDTO)session.getAttribute("user");
 		switch (mode.toUpperCase()) {
 
 		case "ENVIRONMENTLIST":
+			if(u.getUsertype().equals("ADMIN")) {
 			updateList(request);
 			getServletContext().getRequestDispatcher("/environment/environmentmanager.jsp").forward(request, response);
+			}
+			else if(u.getUsertype().equals("USER")) {
+				updateList(request);
+				getServletContext().getRequestDispatcher("/userenvironment/userenvironmentmanager.jsp").forward(request, response);
+			}
+				
 			break;
+			
 
 		case "READ":
 			id = Integer.parseInt(request.getParameter("id"));

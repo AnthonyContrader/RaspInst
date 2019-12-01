@@ -6,7 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import it.contrader.dto.FormatoDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.FormatoService;
 
@@ -31,12 +34,17 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 	FormatoDTO dto;
 	int id;
 	boolean ans;
-
+	final HttpSession session = request.getSession();
+	UserDTO u=(UserDTO)session.getAttribute("user");
 		switch (mode.toUpperCase()) {
 
 		case "FORMATOLIST":
+			if(u.getUsertype().equals("ADMIN"))
 			updateList(request);
 			getServletContext().getRequestDispatcher("/formato/formatomanager.jsp").forward(request, response);
+			if(u.getUsertype().equals("USER"))
+				updateList(request);
+				getServletContext().getRequestDispatcher("/userformato/userformatomanager.jsp").forward(request, response);
 			break;
 
 		case "READ":

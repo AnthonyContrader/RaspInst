@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final HttpSession session = request.getSession();
-		session.setAttribute("utente", null);
+		session.setAttribute("user", null);
 
 		LoginService service = new LoginService();
 
@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 				break;
 				
 			case "USER":
-				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/homeuser.jsp").forward(request, response);
 				break;
 				
 			default:

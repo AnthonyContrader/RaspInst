@@ -6,8 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.PacchettoDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.PacchettoService;
 import it.contrader.service.Service;
 public class PacchettoServlet extends HttpServlet {
@@ -28,12 +30,22 @@ public class PacchettoServlet extends HttpServlet {
 		PacchettoDTO dto;
 		int id;
 		boolean ans;
+		final HttpSession session = request.getSession();
+	//	@SuppressWarnings("unused")
+		UserDTO u=(UserDTO)session.getAttribute("user");
+
 
 		switch (mode.toUpperCase()) {
 
 		case "PACCHETTOLIST":
+			if(u.getUsertype().equals("ADMIN")) {
 			updateList(request);
 			getServletContext().getRequestDispatcher("/pacchetto/pacchettomanager.jsp").forward(request, response);
+			}
+			if(u.getUsertype().equals("USER")) {
+				updateList(request);
+				getServletContext().getRequestDispatcher("/userpacchetto/userpacchettomanager.jsp").forward(request, response);
+			}
 			break;
 
 		case "READ":
