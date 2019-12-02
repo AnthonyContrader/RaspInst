@@ -39,12 +39,14 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 		switch (mode.toUpperCase()) {
 
 		case "FORMATOLIST":
-			if(u.getUsertype().equals("ADMIN"))
 			updateList(request);
-			getServletContext().getRequestDispatcher("/formato/formatomanager.jsp").forward(request, response);
-			if(u.getUsertype().equals("USER"))
-				updateList(request);
+			System.out.println(u.getUsertype());
+			if(u.getUsertype().equals("ADMIN")) {
+				getServletContext().getRequestDispatcher("/formato/formatomanager.jsp").forward(request, response);
+			}
+			if(u.getUsertype().equals("USER")) {
 				getServletContext().getRequestDispatcher("/userformato/userformatomanager.jsp").forward(request, response);
+			}
 			break;
 
 		case "READ":
