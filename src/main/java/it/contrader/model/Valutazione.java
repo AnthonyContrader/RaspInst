@@ -5,7 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import it.contrader.model.User.Usertype;
+
+import it.contrader.model.Valutazione;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,21 +15,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class User {
-
-	public enum Usertype {
-		ADMIN, USER
+public class Valutazione {
+	
+	public enum Voto {
+		ZERO, UNO, DUE, TRE, QUATTRO, CINQUE;
 	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column
+	private Voto voto;
 
-	@Column(unique = true)
-	private String username;
-
-	private String password;
-
-	private Usertype usertype;
-
+	private float mediaVoto;
 }
