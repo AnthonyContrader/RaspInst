@@ -2,6 +2,9 @@ package it.contrader.converter;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+
 public interface Converter<Entity, DTO> {
 
 	public Entity toEntity(DTO dto);

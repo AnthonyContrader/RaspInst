@@ -2,9 +2,7 @@ package it.contrader.converter;
 
 import org.springframework.stereotype.Component;
 
-import it.contrader.dto.UserDTO;
 import it.contrader.dto.ValutazioneDTO;
-import it.contrader.model.User;
 import it.contrader.model.Valutazione;
 
 @Component

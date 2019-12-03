@@ -7,6 +7,7 @@ import it.contrader.dto.PrezzoDTO;
 import it.contrader.model.Formato;
 import it.contrader.model.Prezzo;
 
+@Component
 public class FormatoConverter extends AbstractConverter<Formato,FormatoDTO>{
 	@Override
 	public Formato toEntity(FormatoDTO formatoDTO) {

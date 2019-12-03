@@ -5,7 +5,7 @@ import it.contrader.model.Pacchetto;
 
 @Component
 public class PacchettoConverter extends AbstractConverter<Pacchetto,PacchettoDTO> {
-//ho tolto l'override perchè non esistevano metodi nelle classi precedenti
+
 	@Override
 	public Pacchetto toEntity(PacchettoDTO pacchettoDTO) {
 		Pacchetto pacchetto=null;
