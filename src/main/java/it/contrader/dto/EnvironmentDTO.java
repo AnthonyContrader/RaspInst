@@ -1,5 +1,4 @@
-package it.contrader.model;
-
+package it.contrader.dto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,21 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-public class User {
 
-	public enum Usertype {
-		ADMIN, USER
-	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EnvironmentDTO {
+	
 	private Long id;
-
-	@Column(unique = true)
-	private String username;
-
-	private String password;
-
-	private Usertype usertype;
-
+	private String nome;
+	
 }

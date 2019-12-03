@@ -8,7 +8,8 @@ import it.contrader.model.User;
 
 @Component
 public class UserConverter extends AbstractConverter<User, UserDTO> {
-
+//come fa a esserci l'@override se nelle classi precedenti non esiste questo metodo???
+	//C'è Override perchè ci sono i generics
 	@Override
 	public User toEntity(UserDTO userDTO) {
 		User user = null;
