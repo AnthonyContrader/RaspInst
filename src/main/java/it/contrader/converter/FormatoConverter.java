@@ -3,9 +3,7 @@ package it.contrader.converter;
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.FormatoDTO;
-import it.contrader.dto.PrezzoDTO;
 import it.contrader.model.Formato;
-import it.contrader.model.Prezzo;
 
 @Component
 public class FormatoConverter extends AbstractConverter<Formato,FormatoDTO>{

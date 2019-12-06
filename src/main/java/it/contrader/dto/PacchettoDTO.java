@@ -14,4 +14,9 @@ public class PacchettoDTO {
 	private String nome;
 	private String categoria;
 	private String versione;
+	private UserDTO userDTO;
+	private EnvironmentDTO environmentDTO;
+	private CategoryDTO categoryDTO;
+	private FormatoDTO formatoDTO;
+	private ValutazioneDTO valutazioneDTO;
 }

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class PrezzoDTO {
+public class CategoryDTO {
 private Long id;
-private float costo;
+private String categoria;
 }
