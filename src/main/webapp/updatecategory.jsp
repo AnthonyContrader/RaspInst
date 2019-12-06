@@ -28,11 +28,12 @@
 <form id="floatleft" action="/category/update" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="user">Categoria</label>
+      <label for="category">Categoria</label>
     </div>
     <div class="col-75">
       <input type="text" id="category" name="categoria" value=<%=u.getCategoria()%>>
     </div>
+    <input type="hidden" name="id" value =<%=u.getId() %>>
   </div>
       	
       <button type="submit" >Edit</button>

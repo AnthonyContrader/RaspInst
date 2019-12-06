@@ -19,20 +19,20 @@ public class EnvironmentController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "Environments";
+		return "environment";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "environments";
+		return "environment";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updateenvironments";
+		return "updateenvironment";
 	}
 
 	@PostMapping("/update")
@@ -43,7 +43,7 @@ public class EnvironmentController {
 		dto.setNome(nome);
 		service.update(dto);
 		setAll(request);
-		return "environments";
+		return "environment";
 
 	}
 
@@ -53,7 +53,7 @@ public class EnvironmentController {
 		dto.setNome(nome);
 		service.insert(dto);
 		setAll(request);
-		return "environments";
+		return "environment";
 	}
 
 	@GetMapping("/read")
