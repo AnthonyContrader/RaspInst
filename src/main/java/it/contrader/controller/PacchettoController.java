@@ -21,7 +21,7 @@ public class PacchettoController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request); //set o get??
-		return "pacchetti";
+		return "pacchetto";
 	}
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
@@ -39,7 +39,7 @@ public class PacchettoController {
 		dto.setVersione(versione);
 		service.update(dto);
 		setAll(request); //set o get?
-		return "pacchetti";
+		return "pacchetto";
 	}
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("nome") String nome,
@@ -50,7 +50,7 @@ public class PacchettoController {
 		dto.setVersione(versione);
 		service.insert(dto);
 		setAll(request);
-		return "pacchetti";
+		return "pacchetto";
 	}
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
