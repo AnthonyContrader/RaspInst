@@ -21,14 +21,14 @@ public class FormatoController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "formati";
+		return "formato";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "formati";
+		return "formato";
 	}
 
 	@GetMapping("/preupdate")
@@ -45,7 +45,7 @@ public class FormatoController {
 		dto.setTipoFormato(tipoFormato);
 		service.update(dto);
 		setAll(request);
-		return "formati";
+		return "formato";
 	}
 
 	@PostMapping("/insert")
@@ -54,7 +54,7 @@ public class FormatoController {
 		dto.setTipoFormato(tipoFormato);
 		service.insert(dto);
 		setAll(request);
-		return "formati";
+		return "formato";
 	}
 
 	@GetMapping("/read")

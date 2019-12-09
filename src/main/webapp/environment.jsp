@@ -49,17 +49,18 @@
 
 
 
+		
 		<form id="floatright" action="/environment/insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="environment">Nome</label>
+					<label for="environment">Environment</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="environment" name="nome"
 						placeholder="inserisci nome">
 				</div>
 			</div>
-			<button type="submit">Insert</button>
+				<button type="submit">Insert</button>
 		</form>
 
 	</div>

@@ -27,52 +27,51 @@ public class ValutazioneController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "valutazioni";
+		return "valutazione";
 	}
 	
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "valutazioni";
+		return "valutazione";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatevalutazioni";
+		return "updatevalutazione";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("voto") Valutazione.Voto voto,
-			@RequestParam("password") String password, @RequestParam("mediaVoto") float mediaVoto) {
-
+		@RequestParam("mediavoto") float mediaVoto) {
 		ValutazioneDTO dto = new ValutazioneDTO();
 		dto.setId(id);
 		dto.setVoto(voto);
 		dto.setMediaVoto(mediaVoto);
 		service.update(dto);
 		setAll(request);
-		return "valutazioni";
+		return "valutazione";
 
 	}
 
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("voto") Valutazione.Voto voto,
-			@RequestParam("password") String password, @RequestParam("mediaVoto") float mediaVoto) {
+		@RequestParam("mediavoto") float mediaVoto){
 		ValutazioneDTO dto = new ValutazioneDTO();
 		dto.setVoto(voto);
 		dto.setMediaVoto(mediaVoto);
 		service.insert(dto);
 		setAll(request);
-		return "valutazioni";
+		return "valutazione";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readvalutazioni";
+		return "readvalutazione";
 	}
 	
 	@GetMapping("/logout")
