@@ -14,8 +14,15 @@
 	<%@ include file="./css/header.jsp"%>
 
 	<div class="navbar">
-		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/user/getall">Users</a> <a href="/user/logout" id="logout">Logout</a>
+		<a href="/homeadmin.jsp">Home</a> 
+		<a class="active" href="/user/getall">Users</a>
+		 <a href=/category/getall>Categorie</a>
+		 <a href=/pacchetto/getall>Pacchetto</a>
+		 <a href=/environment/getall>Environment</a>
+		 <a href=/valutazione/getall>Valutazione</a>
+		 <a href=/formato/getall>Formato</a>	
+		 	
+		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%

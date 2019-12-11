@@ -9,6 +9,5 @@ import it.contrader.model.Pacchetto;
 @Transactional
 public interface PacchettoRepository extends CrudRepository<Pacchetto,Long> {
 
-	Pacchetto findByNome(String nome);
-
+	
 }

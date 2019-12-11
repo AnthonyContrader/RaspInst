@@ -7,6 +7,6 @@ import it.contrader.model.Environment;
 @Repository
 @Transactional
 public interface EnvironmentRepository extends CrudRepository<Environment,Long> {
-	Environment findByNome(String nome);
+	//Environment findByNome(String nome);
 
 }

@@ -14,13 +14,8 @@
 	<%@ include file="./css/header.jsp"%>
 
 	<div class="navbar">
-		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/formato/getall">Formato</a>
-		 <a href=/category/getall>Categorie</a>
-		 <a href=/pacchetto/getall>Pacchetto</a>
-		 <a href=/environment/getall>Environment</a>
-		 <a href=/valutazione/getall>Valutazione</a>	
-		<a href="/user/logout" id="logout">Logout</a>
+		<a href="/homeuser.jsp">Home</a> <a class="active"
+			href="/formatouser/getall">Formato</a> <a href="/formatouser/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
@@ -43,11 +38,7 @@
 			<tr>
 				<td><a href="/formato/read?id=<%=u.getId()%>"> <%=u.getTipoFormato()%>
 				</a></td>
-				<td><a href="/formato/preupdate?id=<%=u.getId()%>">Edit</a></td>
-
-
-				<td><a href="/formato/delete?id=<%=u.getId()%>">Delete</a></td>
-
+				
 			</tr>
 			<%
 				}
@@ -56,18 +47,6 @@
 
 
 
-		<form id="floatright" action="/formato/insert" method="post">
-			<div class="row">
-				<div class="col-25">
-					<label for="formato">Formato</label>
-				</div>
-				<div class="col-75">
-					<input type="text" id="formato" name="tipoformato"
-						placeholder="inserisci tipo formato">
-				</div>
-			</div>
-				<button type="submit">Insert</button>
-		</form>
 		
 	</div>	
 	<br>

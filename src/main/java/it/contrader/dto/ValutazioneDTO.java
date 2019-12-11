@@ -1,6 +1,5 @@
 package it.contrader.dto;
 
-import it.contrader.model.Valutazione;
 import it.contrader.model.Valutazione.Voto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,9 +13,9 @@ public class ValutazioneDTO {
 	
 	private Long id;
 	
-	
-	
 	private Voto voto;
 
 	private float mediaVoto;
+
+	//private PacchettoDTO pacchettoDTO;
 }

@@ -1,4 +1,5 @@
 package it.contrader.controller;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,7 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import it.contrader.dto.EnvironmentDTO;
+import it.contrader.dto.UserDTO;
+import it.contrader.model.Environment;
+import it.contrader.service.AbstractService;
 import it.contrader.service.EnvironmentService;
+import it.contrader.service.UserService;
 
 @Controller
 @RequestMapping("/environment")
@@ -15,6 +20,8 @@ public class EnvironmentController {
 
 	@Autowired
 	private EnvironmentService service;
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
@@ -44,20 +51,24 @@ public class EnvironmentController {
 		service.update(dto);
 		setAll(request);
 		return "environment";
-
+		
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("nome") String nome){
+	public String insert(HttpServletRequest request, 
+		@RequestParam("nome") String nome,
+		@RequestParam("user") Long idUser){
 		EnvironmentDTO dto = new EnvironmentDTO();
+		UserDTO u = userService.read(idUser);
 		dto.setNome(nome);
+		dto.setUserDTO(u);
 		service.insert(dto);
 		setAll(request);
 		return "environment";
 	}
 
 	@GetMapping("/read")
-	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
+	public String read(HttpServletRequest request,@RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
 		return "readenvironment";
 	}
@@ -70,5 +81,6 @@ public class EnvironmentController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+		request.getSession().setAttribute("user", userService.getAll());
 	}
 }

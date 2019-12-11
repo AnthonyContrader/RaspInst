@@ -16,6 +16,12 @@
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
 			href="/category/getall">Categorie</a> <a href="/category/logout" id="logout">Logout</a>
+				 <a href=/user/getall>User</a>
+				 <a href=/user/getall>Environment</a>
+				 <a href=/pacchetto/getall>Pacchetto</a>
+				 <a href=/formato/getall>Formato</a>
+				 <a href=/valutazione/getall>Valutazione</a>		 	
+			
 	</div>
 	<div class="main">
 		<%

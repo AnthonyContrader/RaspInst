@@ -16,6 +16,11 @@
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
 			href="/valutazione/getall">Valutazione</a> <a href="/valutazione/logout" id="logout">Logout</a>
+			 <a href=/category/getall>Categorie</a>
+		 <a href=/pacchetto/getall>Pacchetto</a>
+		 <a href=/environment/getall>Environment</a>
+		 <a href=/formato/getall>Formato</a>	
+		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
@@ -26,7 +31,7 @@
 
 		<table>
 			<tr>
-				<th>mediavoto</th>
+				<th>mediaVoto</th>
 				<th>valutazione</th>
 				<th></th>
 				<th></th>
@@ -56,10 +61,10 @@
 		<form id="floatright" action="/valutazione/insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="valutazione">mediavoto</label>
+					<label for="mediavoto">mediaVoto</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="valutazione" name="mediavoto"
+					<input type="text" id="mediavoto" name="mediavoto"
 						placeholder="inserisci media voto">
 				</div>
 			</div>

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import it.contrader.model.Valutazione;
 import lombok.AllArgsConstructor;
@@ -28,4 +30,6 @@ public class Valutazione {
 	private Voto voto;
 
 	private float mediaVoto;
+	
+
 }

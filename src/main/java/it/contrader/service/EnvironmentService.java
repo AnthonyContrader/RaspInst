@@ -17,7 +17,7 @@ public class EnvironmentService extends AbstractService<Environment, Environment
 	@Autowired
 	private EnvironmentRepository repository;
 
-	public EnvironmentDTO findByNome(String nome) {
-		return converter.toDTO(repository.findByNome(nome));
-	}
+	//public EnvironmentDTO findByNome(String nome) {
+	//	return converter.toDTO(repository.findByNome(nome));
+	//}
 }

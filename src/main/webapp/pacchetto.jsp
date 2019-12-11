@@ -1,4 +1,10 @@
-<%@ page import="it.contrader.dto.PacchettoDTO" import="java.util.*"%>
+<%@ page import="it.contrader.dto.PacchettoDTO" 
+import="java.util.*"
+import="it.contrader.dto.CategoryDTO"
+import="it.contrader.dto.FormatoDTO"
+import="it.contrader.dto.ValutazioneDTO"
+import="it.contrader.dto.EnvironmentDTO"
+%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,10 +22,19 @@
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
 			href="/pacchetto/getall">Pacchetto</a> <a href="/pacchetto/logout" id="logout">Logout</a>
+			 <a href=/category/getall>Categorie</a>
+		 <a href=/pacchetto/getall>Formato</a>
+		 <a href=/environment/getall>Environment</a>
+		 <a href=/valutazione/getall>Valutazione</a>	
+		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
 			List<PacchettoDTO> list = (List<PacchettoDTO>) request.getSession().getAttribute("list");
+			List<CategoryDTO> listCategory=(List<CategoryDTO>) request.getSession().getAttribute("category");
+			List<FormatoDTO> listFormato=(List<FormatoDTO>) request.getSession().getAttribute("formato");
+			List<ValutazioneDTO> listValutazione=(List<ValutazioneDTO>) request.getSession().getAttribute("valutazione");
+			List<EnvironmentDTO> listEnvironment=(List<EnvironmentDTO>) request.getSession().getAttribute("environment");
 		%>
 
 		<br>
@@ -27,7 +42,6 @@
 		<table>
 			<tr>
 				<th>Nome</th>
-				<th>Categoria</th>
 				<th>Versione</th>
 				<th></th>
 				<th></th>
@@ -38,7 +52,6 @@
 			<tr>
 				<td><a href="/pacchetto/read?id=<%=u.getId()%>"> <%=u.getNome()%>
 				</a></td>
-				<td><%=u.getCategoria()%></td>
 				<td><%=u.getVersione()%></td>
 				<td><a href="/pacchetto/preupdate?id=<%=u.getId()%>">Edit</a></td>
 
@@ -62,16 +75,6 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-25">
-					<label for="categoria">Categoria</label>
-				</div>
-				<div class="col-75">
-					<input type="text" id="categoria" name="categoria"
-						placeholder="inserisci categoria">
-				</div>
-			</div>
-			
-			<div class="row">
    				 <div class="col-25">
      				<label for="versione">Versione</label>
     			</div>
@@ -80,7 +83,54 @@
 					placeholder="inserisci versione">
     			</div>
     		</div>
-    		
+    		<div class="row">
+				<div class="col-25">
+					<label for="environment">Environment</label>
+				</div>
+				<div class="col-75">
+					<select id="environment" name="environment">
+						<%for(EnvironmentDTO e: listEnvironment){ %>
+								<option value='<%=e.getId()%>'><%=e.getNome()%></option>
+								<%} %>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="formato">Formato</label>
+				</div>
+				<div class="col-75">
+					<select id="formato" name="formato">
+						<%for(FormatoDTO f: listFormato){ %>
+								<option value='<%=f.getId()%>'><%=f.getTipoFormato()%></option>
+								<%} %>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="type">Category</label>
+				</div>
+				<div class="col-75">
+					<select id="category" name="category">
+						<%for(CategoryDTO c:listCategory){ %>
+								<option value='<%=c.getId()%>'><%=c.getCategoria()%></option>
+								<%} %>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="valutazione">Valutazione</label>
+				</div>
+				<div class="col-75">
+					<select id="valutazione" name="valutazione">
+						<%for(ValutazioneDTO v: listValutazione){ %>
+								<option value='<%=v.getId()%>'><%=v.getVoto()%></option>
+						<%} %>
+					</select>
+				</div>
+			</div>			
 			<button type="submit">Insert</button>
 		</form>
 
@@ -89,5 +139,3 @@
 	<%@ include file="./css/footer.jsp"%>
 </body>
 </html>
-
-		

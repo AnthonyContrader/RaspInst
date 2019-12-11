@@ -1,4 +1,6 @@
-<%@ page import="it.contrader.dto.EnvironmentDTO" import="java.util.*"%>
+<%@ page import="it.contrader.dto.EnvironmentDTO" 
+import="it.contrader.dto.UserDTO"
+import="java.util.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,10 +18,16 @@
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
 			href="/environment/getall">Environment</a> <a href="/environment/logout" id="logout">Logout</a>
+			 <a href=/category/getall>Categorie</a>
+		 <a href=/pacchetto/getall>Pacchetto</a>
+		 <a href=/environment/getall>Formato</a>
+		 <a href=/valutazione/getall>Valutazione</a>	
+		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
 			List<EnvironmentDTO> list = (List<EnvironmentDTO>) request.getSession().getAttribute("list");
+			List<UserDTO> listUser=(List<UserDTO>) request.getSession().getAttribute("user");
 		%>
 
 		<br>
@@ -60,6 +68,18 @@
 						placeholder="inserisci nome">
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="user">User</label>
+				</div>
+				<div class="col-75">
+					<select id="user" name="user">
+						<%for(UserDTO v: listUser){ %>
+								<option value='<%=v.getId()%>'><%=v.getUsername()%></option>
+						<%} %>
+					</select>
+				</div>
+			</div>			
 				<button type="submit">Insert</button>
 		</form>
 
