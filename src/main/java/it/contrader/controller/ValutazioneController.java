@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.ValutazioneDTO;
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/valutazione")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ValutazioneController extends AbstractController<ValutazioneDTO> {
 
