@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Tipo 
+          </th>
+          <th>
+           
+          </th>
+          <th>
+           
+        </th>
+         <th>  
+           Edit
+          </th>
+          <th>
+          Categoria
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="category" [(ngModel)]="categorytoinsert.categoria">
+         </td>
+         <td> 
+           
+          </td>
+          <td>
+
+
+
+         
+          </td>
+          <td>
+            <button (click)="insert(categorytoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let category of category">
+          <td>
+            <input [(ngModel)]="category.categoria">
+          </td>
+          <td>
+            
+          
+          
+          </td>
+          <td>
+            
+          </td>
+          <td>
+          
+ <button (click)="update(category)">Save</button>
+          </td>
+          <td>
+            <button (click)="delete(category)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

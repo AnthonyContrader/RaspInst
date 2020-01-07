@@ -11,7 +11,11 @@ export class AdminMenuComponent implements OnInit {
   isUserCollapsed = false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
-
+  isEnvironmentCollapsed = false;
+  isFormatoCollapsed = false;
+  isCategoryCollapsed = false;
+  isValutazioneCollapsed = false;
+  isPacchettoCollapsed= false;
   constructor(private router: Router) {
   }
 
@@ -33,5 +37,32 @@ export class AdminMenuComponent implements OnInit {
     if (this.isAccountCollapsed === false) {
       this.isAccountCollapsed = true;
     } else { this.isAccountCollapsed = false; }
+  }
+
+  environmentcollapse() {
+    if (this.isEnvironmentCollapsed === false){
+      this.isEnvironmentCollapsed = true;
+    } else { this.isEnvironmentCollapsed=false;}
+  }
+  formatocollapse(){
+    if (this.isFormatoCollapsed=== false){
+      this.isFormatoCollapsed = true;
+    } else { this.isFormatoCollapsed=false;}
+  }
+  categorycollapse(){
+    if (this.isCategoryCollapsed=== false){
+      this.isCategoryCollapsed = true;
+    } else { this.isCategoryCollapsed = false;}
+  }
+  valutazionecollapse(){
+    if (this.isValutazioneCollapsed=== false){
+      this.isValutazioneCollapsed = true;
+    } else { this.isValutazioneCollapsed=false;}
+  }
+  pacchettocollapse(){
+    if (this.isPacchettoCollapsed=== false){
+      this.isPacchettoCollapsed = true;
+    
+    } else { this.isPacchettoCollapsed=false;}
   }
 }

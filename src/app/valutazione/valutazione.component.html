@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Voto
+          </th>
+          <th>
+           Media Voto
+          </th>
+          <th>
+           
+        </th>
+         <th>  
+           Edit
+          </th>
+          <th>
+           Valutazione
+          </th>
+        </tr>
+        <tr>
+            
+          <td>
+            
+                <select placeholder="voto" [(ngModel)]="valutazionetoinsert.voto">
+                <option value=ZERO>0</option>
+                <option value=UNO>1</option>
+                <option value=DUE>2</option>
+                <option value=TRE>3</option>
+                <option value=QUATTRO>4</option>
+                <option value=CINQUE>5</option>
+              </select>
+            </td>
+            <td> 
+              <input placeholder="Media voto" [(ngModel)]="valutazionetoinsert.mediaVoto">
+             </td>
+             <td>
+   
+   
+   
+            
+             </td>
+             <td>
+               <button (click)="insert(valutazionetoinsert)">Insert</button>
+             </td>
+               <td>
+               <button (click)="clear()">Clear</button>
+              </td>
+            </tr> 
+              <tr *ngFor="let valutazione of valutazione">
+             <td>
+              <select [(ngModel)]="valutazione.voto">
+                  <option value=ZERO>0</option>
+                  <option value=UNO>1</option>
+                  <option value=DUE>2</option>
+                  <option value=TRE>3</option>
+                  <option value=QUATTRO>4</option>
+                  <option value=CINQUE>5</option>
+                  </select>
+             </td>
+         <td> 
+           <input [(ngModel)]="valutazione.mediaVoto">
+          </td>
+          <td>
+
+          </td>
+          <td>
+          
+ <button (click)="update(valutazione)">Save</button>
+          </td>
+          <td>
+            <button (click)="delete(valutazione)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

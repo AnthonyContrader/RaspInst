@@ -4,6 +4,11 @@ import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.compon
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
+import { EnvironmentComponent } from 'src/Environment/environment.component';
+import { FormatoComponent } from '../formato/formato.component';
+import { CategoryComponent } from '../category/category.component';
+import { ValutazioneComponent } from '../valutazione/valutazione.component';
+import { PacchettoComponent } from '../pacchetto/pacchetto.component';
 
 /**
  * Modulo di routing dell'admin. Qui ci sono i percorsi che un admin può seguire:
@@ -21,7 +26,12 @@ const routes: Routes = [
   { path: 'admin-dashboard', component: AdminLayoutComponent, children:[
     { path: '', component: AdminDashboardComponent},
     { path: 'users', component: UsersComponent},
-    { path: 'work-in-progress', component: WorkInProgressComponent}
+    { path: 'environment', component: EnvironmentComponent},
+    { path: 'formato', component: FormatoComponent},
+    { path: 'category', component:CategoryComponent},
+    {path: 'valutazione', component:ValutazioneComponent},
+    {path:'pacchetto', component:PacchettoComponent},
+    { path: 'work-in-Progress', component: WorkInProgressComponent}
   ]}
 ];
 

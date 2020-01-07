@@ -7,6 +7,11 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
+//import { FormatoComponent } from './formato/formato.component';
+import { FormsModule } from '@angular/forms';
+import { PacchettoComponent } from './pacchetto/pacchetto.component';
+//import { ValutazioneComponent } from './valutazione/valutazione.component';
+//import { CategoryComponent } from './category/category.component';
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -17,7 +22,11 @@ import { AdminModule } from './admin/admin.module';
 */
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   // PacchettoComponent,
+    //ValutazioneComponent,
+    //CategoryComponent,
+    //FormatoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +34,8 @@ import { AdminModule } from './admin/admin.module';
     LoginModule,
     HttpClientModule,
     LayoutModule,
-    AdminModule
+    AdminModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

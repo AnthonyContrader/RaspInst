@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Nome
+            </th>
+            <th>
+             User
+            </th>
+            <th>
+             
+          </th>
+           <th>  
+             Edit
+            </th>
+            <th>
+            Environment
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="nome" [(ngModel)]="environmenttoinsert.nome">
+
+            </td>
+           <td> 
+             
+            <!--<label="user" [(ngModel)]="user" >-->
+           <!-- <select [(ngModel)]="user.userDTO">
+              <option [selected]="userDTO.id" value=this.userDTO></option>-->
+              <!--<option [selected]="user.usertype===USER" value="USER">USER</option>-->
+            
+               <!--<select [(ngModel)]="environment.userDTO">
+                <option *ngFor="let user of users" [ngValue]="user" >{{user.username}}</option> 
+                </select>-->
+                
+              </td>
+            <td>
+
+
+
+           
+            </td>
+            <td>
+              <button (click)="insert(environmenttoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let e of environments">
+            <td>
+              <input [(ngModel)]="e.nome">
+            </td>
+            <td>
+              {{e.userDTO.id }}
+            </td>
+            <td>
+              
+            </td>
+            
+
+
+
+              
+            
+            <td>
+              <button (click)="update(e)">Save</button>
+            </td>
+            <td>
+              <button (click)="delete(e)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

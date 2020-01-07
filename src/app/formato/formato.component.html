@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Tipo 
+          </th>
+          <th>
+           
+          </th>
+          <th>
+           
+        </th>
+         <th>  
+           Edit
+          </th>
+          <th>
+          Formato
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="Tipo" [(ngModel)]="formatotoinsert.tipoFormato">
+         </td>
+         <td> 
+           
+          </td>
+          <td>
+
+
+
+         
+          </td>
+          <td>
+            <button (click)="insert(formatotoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let formato of formato">
+          <td>
+            <input [(ngModel)]="formato.tipoFormato">
+          </td>
+          <td>
+            
+          
+          
+          </td>
+          <td>
+            
+          </td>
+          <td>
+          
+ <button (click)="update(formato)">Save</button>
+          </td>
+          <td>
+            <button (click)="delete(formato)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
