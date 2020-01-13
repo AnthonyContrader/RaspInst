@@ -16,16 +16,16 @@
            
          </th>
          <th>
-           Cat_id
+           categoria
          </th>
          <th>
-           formato_id
+           formato
          </th>
          <th>
-           environment_id
+           environment
          </th>
          <th>
-           valut_id
+           valutazione
          </th>
          <th>         
          
@@ -51,22 +51,23 @@
          </td>
          <td>
             <select [(ngModel)]="pacchettotoinsert.categoryDTO">
-              <option *ngFor="let category of categories" [ngValue]="category" >{{category.id}}</option> >
+              <option *ngFor="let c of categories" value="c" >{{c.categoria}}</option>
             </select>
          </td>
 <td>
-
+<select [(ngModel)]="pacchettotoinsert.formatoDTO">
+  <option *ngFor="let f of formati" value="f" >{{f.tipoFormato}}</option>
+</select>
 </td>
 <td>
-
+<select [(ngModel)]="pacchettotoinsert.environmentDTO">
+  <option *ngFor="let e of environments" value="e" >{{e.nome}}</option>
+</select>
 </td>
-         
-
-
-
-
-
 <td>
+  <select [(ngModel)]="pacchettotoinsert.valutazioneDTO">
+    <option *ngFor="let v of valutazioni" value="v">{{v.voto}}</option>
+  </select>
 
 </td>
 
@@ -92,9 +93,20 @@
            
           </td>
           <td>
-             <input [(ngModel)]="event.category">
+            
           </td>
-          
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+          <td>
+            
+          </td>
 
 
 

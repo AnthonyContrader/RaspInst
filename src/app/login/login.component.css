@@ -8,8 +8,8 @@ form{
 
 img{
     position: inherit;
-    width:50%;
-    margin: 12%;
+    widows: 25%;
+    margin: 30%;
 }
 
 input, input:hover, input::selection, input:checked, input:focus{
@@ -22,8 +22,11 @@ input, input:hover, input::selection, input:checked, input:focus{
 }
 
 .container-fluid{
-    background-color: darkorange;
-    height: 100vh;
+    background-image: url(../../assets/RaspInst-36.svg);
+    height: 100%;
+    width: 100%;
+   background-size: cover;
+   
 }
 input::placeholder{
     color: white;
@@ -50,4 +53,18 @@ padding-left: auto;
 p{
 font-size: 14px;
 color: white;
+}
+.triangolo{
+
+    background-image: url(../../assets/RaspInst-23.svg) ;
+    height: 100%;
+    width: 100%;
+    margin: 30%;
+}
+.berry{
+    background-image: url(../../assets/RaspInst-30.svg) ;
+    height: 49%;
+    width: 26%;
+    left: 45%;
+    top: -33%;
 }

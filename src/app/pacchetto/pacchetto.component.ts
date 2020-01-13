@@ -9,6 +9,7 @@ import { ValutazioneService } from 'src/service/valutazione.service';
 import { PacchettoDTO } from 'src/dto/pacchettodto';
 import { CategoryDTO } from 'src/dto/categorydto';
 import { CategoryService } from 'src/service/category.service';
+import { Voto } from 'src/dto/voto';
 
 @Component({
   selector: 'app-pacchetto',
@@ -28,10 +29,15 @@ export class PacchettoComponent implements OnInit {
   environments : EnvironmentDTO[];
   valutazione : ValutazioneDTO;
   valutazioni : ValutazioneDTO[];
+ // voto: Voto;
   constructor(private service: PacchettoService, private categoryService: CategoryService, private formatoService: FormatoService, private environmentService : EnvironmentService, private valutazioneService: ValutazioneService) { }
   ngOnInit() {
     this.getPacchetto();
-  
+    this.getCategory();
+    this.getEnvironment();
+    this.getFormato();
+  this.getValutazione();
+  //this.getVoto();
   }
 
   getPacchetto() {
@@ -62,13 +68,19 @@ export class PacchettoComponent implements OnInit {
   }
 
   update(pacchetto : PacchettoDTO) {
-    //pacchetto.userDTO=JSON.parse(localStorage.getItem('currentUser'));
+    pacchetto.formatoDTO=JSON.parse(localStorage.getItem('currentFormato'));
+    pacchetto.categoryDTO=JSON.parse(localStorage.getItem('currentCategory'));
+    pacchetto.environmentDTO=JSON.parse(localStorage.getItem('currentEnvironment'));
+    pacchetto.valutazioneDTO=JSON.parse(localStorage.getItem('currentValutazione'));
     this.service.update(pacchetto).subscribe(() => this.getPacchetto());
   }
 
-  insert(pachetto: PacchettoDTO) {
-    //environment.userDTO=JSON.parse(localStorage.getItem('currentUser'));
-   this.service.insert(pachetto).subscribe(() => this.getPacchetto());
+  insert(pacchetto: PacchettoDTO) {
+  pacchetto.formatoDTO=JSON.parse(localStorage.getItem('currentFormato'));
+  pacchetto.categoryDTO=JSON.parse(localStorage.getItem('currentCategory'));
+  pacchetto.environmentDTO=JSON.parse(localStorage.getItem('currentEnvironment'));
+  pacchetto.valutazioneDTO=JSON.parse(localStorage.getItem('currentValutazione'));
+   this.service.insert(pacchetto).subscribe(() => this.getPacchetto());
     
   }
 
