@@ -1,0 +1,70 @@
+form{
+    margin-top:270px;
+    width: 55%;
+    padding: 10px;
+    border-radius:0;
+    border-color: crimson;
+}
+
+img{
+    position: inherit;
+    widows: 25%;
+    margin: 30%;
+}
+
+input, input:hover, input::selection, input:checked, input:focus{
+    border: 0;
+    background-color: darkorange;
+    border-radius: 0;
+    color: white;
+    border-bottom: 1px solid crimson;
+    margin: 0px; 
+}
+
+.container-fluid{
+    background-image: url(../../assets/RaspInst-36.svg);
+    height: 100%;
+    width: 100%;
+   background-size: cover;
+   
+}
+input::placeholder{
+    color: white;
+}
+.form-control{
+border: none;
+background-color: darkorange;
+color: white;
+border-bottom: 1px solid white;
+}
+
+.login{
+border: none;
+background-color: darkorange;
+color: white;
+border: 1px solid white;
+border-radius: 2px;
+padding-top: 10px;
+padding-right: auto;
+padding-bottom: 10px;
+padding-left: auto;
+}
+
+p{
+font-size: 14px;
+color: white;
+}
+.triangolo{
+
+    background-image: url(../../assets/RaspInst-23.svg) ;
+    height: 100%;
+    width: 100%;
+    margin: 30%;
+}
+.berry{
+    background-image: url(../../assets/RaspInst-30.svg) ;
+    height: 49%;
+    width: 26%;
+    left: 45%;
+    top: -33%;
+}

@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Nome
+          </th>
+          <th>
+           Versione
+          </th>
+         <th> 
+           
+         </th>
+         <th>
+           categoria
+         </th>
+         <th>
+           formato
+         </th>
+         <th>
+           environment
+         </th>
+         <th>
+           valutazione
+         </th>
+         <th>         
+         
+         </th>
+         <th>
+           Edit
+          </th>
+          <th>
+          Pacchetto
+          </th>
+        </tr>
+        <tr>
+          <td>
+         
+            <input placeholder="nome" [(ngModel)]="pacchettotoinsert.nome">
+          </td>
+          
+         <td> 
+           <input placeholder="versione" [(ngModel)]="pacchettotoinsert.versione">
+         </td>
+         <td>
+            
+         </td>
+         <td>
+            <select [(ngModel)]="pacchettotoinsert.categoryDTO">
+              <option *ngFor="let c of categories" value="c" >{{c.categoria}}</option>
+            </select>
+         </td>
+<td>
+<select [(ngModel)]="pacchettotoinsert.formatoDTO">
+  <option *ngFor="let f of formati" value="f" >{{f.tipoFormato}}</option>
+</select>
+</td>
+<td>
+<select [(ngModel)]="pacchettotoinsert.environmentDTO">
+  <option *ngFor="let e of environments" value="e" >{{e.nome}}</option>
+</select>
+</td>
+<td>
+  <select [(ngModel)]="pacchettotoinsert.valutazioneDTO">
+    <option *ngFor="let v of valutazioni" value="v">{{v.voto}}</option>
+  </select>
+
+</td>
+
+
+
+         <td>
+          </td>
+          <td>
+            <button (click)="insert(pacchettotoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let p of pacchetto">
+          <td>
+            <input [(ngModel)]="p.nome">
+          </td>
+          <td>
+            <input [(ngModel)]="p.versione">
+          </td>
+          <td>
+           
+          </td>
+          <td>
+            
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+          <td>
+            
+          </td>
+
+
+
+            
+          
+          <td>
+            <button (click)="update(p)">Save</button>
+          </td>
+          <td>
+            <button (click)="delete(p)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
